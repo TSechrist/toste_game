@@ -24,7 +24,7 @@ CHEST_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join('../res', 'c
 def handle_bullets(bullets, player, chest):
     for bullet in bullets:
         bullet.x += BULLET_VEL
-        if chest.colliderect(bullet):
+        if chest.box.colliderect(bullet):
             pygame.event.post(pygame.event.Event(CHEST_HIT))
             bullets.remove(bullet)
 
@@ -39,10 +39,12 @@ def player_handle_movement(keys_pressed, player):
         player.box.x += VEL
         
 
-def draw_window(objlist):
+def draw_window(objlist, bullets):
     WIN.fill(GREY)
     for obj in objlist:
         WIN.blit(obj.image, (obj.box.x, obj.box.y))
+    for bullet in bullets:
+        pygame.draw.rect(WIN, WHITE, bullet)
     # WIN.blit(PLAYER_1_IMAGE, (player.x, player.y))
     # WIN.blit(CHEST_IMAGE, (chest.x, chest.y))
     pygame.display.update()
@@ -62,16 +64,17 @@ def main():
     while run:
         clock.tick(FPS)
         for event in pygame.event.get():
+            # print(bullets)
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
-                if(keys_pressed[pygame.K_e]): #E Key
-                    bullets.append(pygame.Rect(player.x + player.width, player.y + (player.height/2), 10, 5))
+                if event.key == pygame.K_e: #E Key
+                    bullets.append(pygame.Rect(player.box.x + player.box.width, player.box.y + (player.box.height/2), 10, 5))
 
         keys_pressed = pygame.key.get_pressed()
         player_handle_movement(keys_pressed, player)
         handle_bullets(bullets, player, chest)
-        draw_window(objlist)
+        draw_window(objlist, bullets)
     
     pygame.quit()
 

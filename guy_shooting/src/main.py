@@ -1,6 +1,9 @@
 import pygame
 import os
+import random
 from gameObject import gameObject
+
+pygame.font.init()
 
 WIDTH, HEIGHT = 800, 600
 ICON_WIDTH, ICON_HEIGHT = 50, 50
@@ -17,6 +20,8 @@ WHITE = (255, 255, 255)
 GREY = (100, 100, 100)
 
 FPS = 60
+
+SCORE_FONT = pygame.font.SysFont('ariel', 30)
 
 PLAYER_1_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join('../res', 'player_1.png')), (ICON_WIDTH, ICON_HEIGHT))
 CHEST_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join('../res', 'chest.png')), (ICON_WIDTH, ICON_HEIGHT))
@@ -39,8 +44,10 @@ def player_handle_movement(keys_pressed, player):
         player.box.x += VEL
         
 
-def draw_window(objlist, bullets):
+def draw_window(objlist, bullets, score):
     WIN.fill(GREY)
+    score_text = SCORE_FONT.render("Score: " + str(score), 1, WHITE)
+    WIN.blit(score_text, (5, 5))
     for obj in objlist:
         WIN.blit(obj.image, (obj.box.x, obj.box.y))
     for bullet in bullets:
@@ -52,13 +59,13 @@ def draw_window(objlist, bullets):
 def main():
     clock = pygame.time.Clock()
     run = True
-
+    score = 0
     bullets = []
 
     # player = pygame.Rect(300, 100, ICON_WIDTH, ICON_HEIGHT)
     # chest = pygame.Rect(600, 400, ICON_WIDTH, ICON_HEIGHT)
     player = gameObject(PLAYER_1_IMAGE, pygame.Rect(300, 100, ICON_WIDTH, ICON_HEIGHT))
-    chest = gameObject(CHEST_IMAGE, pygame.Rect(600, 400, ICON_WIDTH, ICON_HEIGHT))
+    chest = gameObject(CHEST_IMAGE, pygame.Rect(random.randint(50, 550), random.randint(0, 350), ICON_WIDTH, ICON_HEIGHT))
     objlist = [player, chest]
 
     while run:
@@ -70,11 +77,17 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_e: #E Key
                     bullets.append(pygame.Rect(player.box.x + player.box.width, player.box.y + (player.box.height/2), 10, 5))
+            if event.type == CHEST_HIT:
+                objlist.remove(chest)
+                chest = gameObject(CHEST_IMAGE, pygame.Rect(random.randint(50, 550), random.randint(0, 350), ICON_WIDTH, ICON_HEIGHT))
+                objlist.append(chest)
+                score += 1
+
 
         keys_pressed = pygame.key.get_pressed()
         player_handle_movement(keys_pressed, player)
         handle_bullets(bullets, player, chest)
-        draw_window(objlist, bullets)
+        draw_window(objlist, bullets, score)
     
     pygame.quit()
 

@@ -4,9 +4,9 @@ from settings import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups)
-        self.image = pygame.transform.scale(pygame.image.load('../res/test/player_1.png').convert_alpha(), (32, 32))
+        self.image = pygame.transform.scale(pygame.image.load('../res/test/player_1.png').convert_alpha(), (64, 64))
         self.rect = self.image.get_rect(topleft = pos)
-        self.hitbox = self.rect.inflate(0, -16)
+        self.hitbox = self.rect.inflate(0, -26)
 
         self.direction = pygame.math.Vector2()
         self.speed = 5

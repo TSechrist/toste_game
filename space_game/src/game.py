@@ -1,6 +1,7 @@
 import pygame, sys
 from settings import *
 from level import Level
+from pytmx.util_pygame import load_pygame
 
 class Game():
     def __init__(self):
@@ -9,7 +10,6 @@ class Game():
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption("Space Game")
         self.clock = pygame.time.Clock()
-    
         self.level = Level()
 
     def run(self):

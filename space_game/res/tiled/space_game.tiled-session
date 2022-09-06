@@ -1,0 +1,45 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "tsx/Objects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tsx/RPG Nature Tileset Autumn.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tsx/RPG Nature Tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tsx/TX Plant.tsx": {
+            "dynamicWrapping": false,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/tiled/tmx",
+    "last.imagePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/graphics/objects",
+    "map.height": 40,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.width": 40,
+    "openFiles": [
+    ],
+    "project": "space_game.tiled-project",
+    "recentFiles": [
+        "tsx/TX Plant.tsx",
+        "tsx/Objects.tsx",
+        "tsx/RPG Nature Tileset.tsx",
+        "tsx/RPG Nature Tileset Autumn.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}

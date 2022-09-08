@@ -18,14 +18,15 @@ class Level:
         self.create_map()
 
     def create_map(self):
-        for row_index, row in enumerate(WORLD_MAP):
-            for col_index, col in enumerate(row):
-                x = col_index * TILESIZE
-                y = row_index * TILESIZE
-                if col == 'x':
-                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
-                if col == 'p':
-                    self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
+        # for row_index, row in enumerate(WORLD_MAP):
+        #     for col_index, col in enumerate(row):
+        #         x = col_index * TILESIZE
+        #         y = row_index * TILESIZE
+        #         if col == 'x':
+        #             Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
+        #         if col == 'p':
+        #             self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
+        self.player = Player((200, 300), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
 
@@ -53,7 +54,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.offset.x = player.rect.centerx - self.half_width
         self.offset.y = player.rect.centery - self.half_height
 
-        # drawing floow
+        # drawing floor
         floor_offset_pos = self.floor_rect.topleft - self.offset
         self.display_surface.blit(self.floor_surf, floor_offset_pos)
 

@@ -17,6 +17,7 @@
             "scaleInEditor": 1
         },
         "tsx/RPG Nature Tileset.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },

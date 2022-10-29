@@ -29,7 +29,7 @@
     "last.exportedFilePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/tiled/tmx",
     "last.imagePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/graphics/objects",
     "map.height": 40,
-    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedExportFilter": "CSV files (*.csv)",
     "map.lastUsedFormat": "tmx",
     "map.width": 40,
     "openFiles": [

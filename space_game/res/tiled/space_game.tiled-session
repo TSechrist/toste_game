@@ -6,7 +6,11 @@
     "activeFile": "",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "tsx/Bushes.tsx": {
+            "dynamicWrapping": true
+        },
         "tsx/Objects.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
@@ -19,7 +23,7 @@
         "tsx/RPG Nature Tileset.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 2
         },
         "tsx/TX Plant.tsx": {
             "dynamicWrapping": false,
@@ -36,9 +40,9 @@
     ],
     "project": "space_game.tiled-project",
     "recentFiles": [
+        "tsx/RPG Nature Tileset.tsx",
         "tsx/TX Plant.tsx",
         "tsx/Objects.tsx",
-        "tsx/RPG Nature Tileset.tsx",
         "tsx/RPG Nature Tileset Autumn.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",

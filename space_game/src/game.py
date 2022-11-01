@@ -11,7 +11,6 @@ class Game():
         pygame.display.set_caption("Space Game")
         self.clock = pygame.time.Clock()
         tmx_data = load_pygame('../res/tiled/tmx/island1.tmx')
-        print(tmx_data.layers)
         self.level = Level()
 
     def run(self):

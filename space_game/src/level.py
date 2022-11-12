@@ -26,9 +26,9 @@ class Level:
                 'entities': import_csv_layout('../res/tiled/tmx/island1_Entities.csv')
         }
         graphics = {
-            'bushes': import_folder('../res/graphics/bushes')
+            'bushes': import_folder('../res/graphics/bushes'),
+            'entities': import_folder_dict('../res/graphics/entities')
         }
-        print(graphics)
         for style, layout in layouts.items():
             for row_index, row in enumerate(layout):
                 for col_index, col in enumerate(row):
@@ -41,7 +41,8 @@ class Level:
                             random_bush_image = choice(graphics['bushes'])
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_bush_image)
                         if style == 'entities':
-                            pass
+                            surf = graphics['entities'][str(col)]
+                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'entity', surf)
                     # if col == 'x':
                     #     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                     # if col == 'p':

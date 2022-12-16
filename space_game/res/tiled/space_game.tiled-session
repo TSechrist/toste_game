@@ -3,11 +3,22 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "tmx/island1.tmx",
     "expandedProjectPaths": [
+        "tmx",
+        ".",
+        "tsx"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "tmx/island1.tmx": {
+            "scale": 0.642734375,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 640.2333779020299,
+                "y": 640.2333779020299
+            }
+        },
         "tsx/Bushes.tsx": {
             "dynamicWrapping": true
         },
@@ -27,22 +38,26 @@
         },
         "tsx/TX Plant.tsx": {
             "dynamicWrapping": false,
+            "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/tiled/tmx",
+    "last.exportedFilePath": "C:/Users/steph/Desktop/toste_game/space_game/res/tiled/tmx",
     "last.imagePath": "C:/Users/amac/Desktop/python/toste_game/space_game/res/graphics/objects",
     "map.height": 40,
     "map.lastUsedExportFilter": "CSV files (*.csv)",
     "map.lastUsedFormat": "tmx",
     "map.width": 40,
     "openFiles": [
+        "tmx/island1.tmx",
+        "tsx/Objects.tsx"
     ],
     "project": "space_game.tiled-project",
     "recentFiles": [
+        "tsx/Objects.tsx",
+        "tmx/island1.tmx",
         "tsx/RPG Nature Tileset.tsx",
         "tsx/TX Plant.tsx",
-        "tsx/Objects.tsx",
         "tsx/RPG Nature Tileset Autumn.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",

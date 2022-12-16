@@ -23,11 +23,11 @@ class Level:
         layouts = {
                 'boundary': import_csv_layout('../res/tiled/tmx/island1_FloorBlocks.csv'),
                 'bushes': import_csv_layout('../res/tiled/tmx/island1_Bushes.csv'),
-                'entities': import_csv_layout('../res/tiled/tmx/island1_Entities.csv')
+                'objects': import_csv_layout('../res/tiled/tmx/island1_Objects.csv')
         }
         graphics = {
             'bushes': import_folder('../res/graphics/bushes'),
-            'entities': import_folder_dict('../res/graphics/entities')
+            'objects': import_folder_dict('../res/graphics/objects')
         }
         for style, layout in layouts.items():
             for row_index, row in enumerate(layout):
@@ -40,9 +40,9 @@ class Level:
                         if style == 'bushes':
                             random_bush_image = choice(graphics['bushes'])
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_bush_image)
-                        if style == 'entities':
-                            surf = graphics['entities'][str(col)]
-                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'entity', surf)
+                        if style == 'objects':
+                            surf = graphics['objects'][str(col)]
+                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
                     # if col == 'x':
                     #     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                     # if col == 'p':

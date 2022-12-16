@@ -1,0 +1,42 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "tsx/Bushes.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tsx/Objects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tsx/RPG Nature Tileset.tsx": {
+            "dynamicWrapping": false
+        },
+        "tsx/TX Plant.tsx": {
+            "dynamicWrapping": false,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/steph/Desktop/toste_game/space_game/res/tiled/tmx",
+    "last.imagePath": "C:/Users/steph/Desktop/toste_game/space_game/res/graphics/objects_2",
+    "lastUsedTilesetExportFilter": "All Files (*)",
+    "map.lastUsedExportFilter": "All Files (*)",
+    "openFiles": [
+    ],
+    "project": "space_game_2.tiled-project",
+    "recentFiles": [
+        "tsx/Objects.tsx",
+        "tsx/TX Plant.tsx",
+        "tsx/Bushes.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}

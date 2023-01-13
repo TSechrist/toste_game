@@ -5,6 +5,7 @@ from player import Player
 from utils import *
 from debug import *
 from random import choice
+from weapon import Weapon
 
 
 class Level:
@@ -51,7 +52,11 @@ class Level:
 					#     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
 					# if col == 'p':
 						# self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
-		self.player = Player((200, 300), [self.visible_sprites], self.obstacle_sprites)
+		self.player = Player((200, 300), [self.visible_sprites], self.obstacle_sprites, self.create_attack)
+
+	def create_attack(self):
+		Weapon(self.player, [self.visible_sprites])
+
 
 	def run(self):
 

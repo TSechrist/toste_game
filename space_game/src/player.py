@@ -3,7 +3,7 @@ from settings import *
 from utils import import_folder
 
 class Player(pygame.sprite.Sprite):
-	def __init__(self, pos, groups, obstacle_sprites):
+	def __init__(self, pos, groups, obstacle_sprites, create_attack):
 		super().__init__(groups)
 		# self.image = pygame.transform.scale(pygame.image.load('../res/test/player_1.png').convert_alpha(), (32, 32))
 		self.image = pygame.transform.scale(pygame.image.load('../res/graphics/player/down/down_0.png').convert_alpha(), (32, 32))
@@ -22,6 +22,7 @@ class Player(pygame.sprite.Sprite):
 		self.attacking = False
 		self.attack_cooldown = 400
 		self.attack_time = None
+		self.create_attack = create_attack
 
 		self.obstacle_sprites = obstacle_sprites
 
@@ -38,36 +39,37 @@ class Player(pygame.sprite.Sprite):
 	def input(self):
 		keys = pygame.key.get_pressed()
 
-		# Movement input
-		if (keys[pygame.K_w] or keys[pygame.K_UP]) and not (keys[pygame.K_s] or keys[pygame.K_DOWN]):
-			self.direction.y = -1
-			self.status = 'up'
-		elif (keys[pygame.K_s] or keys[pygame.K_DOWN]) and not (keys[pygame.K_w] or keys[pygame.K_UP]):
-			self.direction.y = 1
-			self.status = 'down'
-		else:
-			self.direction.y = 0
+		if not self.attacking:
+			# Movement input
+			if (keys[pygame.K_w] or keys[pygame.K_UP]) and not (keys[pygame.K_s] or keys[pygame.K_DOWN]):
+				self.direction.y = -1
+				self.status = 'up'
+			elif (keys[pygame.K_s] or keys[pygame.K_DOWN]) and not (keys[pygame.K_w] or keys[pygame.K_UP]):
+				self.direction.y = 1
+				self.status = 'down'
+			else:
+				self.direction.y = 0
 
-		if (keys[pygame.K_a] or keys[pygame.K_LEFT]) and not (keys[pygame.K_d] or keys[pygame.K_RIGHT]):
-			self.direction.x = -1
-			self.status = 'left'
-		elif (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and not (keys[pygame.K_a] or keys[pygame.K_LEFT]):
-			self.direction.x = 1
-			self.status = 'right'
-		else:
-			self.direction.x = 0
+			if (keys[pygame.K_a] or keys[pygame.K_LEFT]) and not (keys[pygame.K_d] or keys[pygame.K_RIGHT]):
+				self.direction.x = -1
+				self.status = 'left'
+			elif (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and not (keys[pygame.K_a] or keys[pygame.K_LEFT]):
+				self.direction.x = 1
+				self.status = 'right'
+			else:
+				self.direction.x = 0
 
-		# Attack Input
-		if keys[pygame.K_SPACE] and not self.attacking:
-			self.attacking = True
-			self.attack_time = pygame.time.get_ticks()
-			print("Attack")
+			# Attack Input
+			if keys[pygame.K_SPACE]:
+				self.attacking = True
+				self.attack_time = pygame.time.get_ticks()
+				self.create_attack()
 
-		# Interact Input
-		if keys[pygame.K_e] and not self.attacking:
-			self.attacking = True
-			self.attack_time = pygame.time.get_ticks()
-			print("Interact")
+			# Interact Input
+			if keys[pygame.K_e]:
+				self.attacking = True
+				self.attack_time = pygame.time.get_ticks()
+				print("Interact")
 
 	def get_status(self):
 

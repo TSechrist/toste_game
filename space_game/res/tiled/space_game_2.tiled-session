@@ -3,10 +3,21 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "tmx/island1.tmx",
     "expandedProjectPaths": [
+        "tmx",
+        ".",
+        "tsx"
     ],
     "fileStates": {
+        "tmx/island1.tmx": {
+            "scale": 0.642734375,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 850.2734897289413,
+                "y": 640.2333779020299
+            }
+        },
         "tsx/Bushes.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
@@ -18,10 +29,13 @@
             "scaleInEditor": 1
         },
         "tsx/RPG Nature Tileset.tsx": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "tsx/TX Plant.tsx": {
             "dynamicWrapping": false,
+            "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
@@ -30,10 +44,15 @@
     "lastUsedTilesetExportFilter": "All Files (*)",
     "map.lastUsedExportFilter": "All Files (*)",
     "openFiles": [
+        "tmx/island1.tmx",
+        "tsx/RPG Nature Tileset.tsx",
+        "tsx/Objects.tsx"
     ],
     "project": "space_game_2.tiled-project",
     "recentFiles": [
         "tsx/Objects.tsx",
+        "tsx/RPG Nature Tileset.tsx",
+        "tmx/island1.tmx",
         "tsx/TX Plant.tsx",
         "tsx/Bushes.tsx"
     ],

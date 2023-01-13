@@ -5,8 +5,10 @@ class Weapon(pygame.sprite.Sprite):
 		super().__init__(groups)
 		direction = player.status.split('_')[0]
 
-		 # Graphic
-		self.image = pygame.Surface((40,40))
+		# Graphic
+		full_path = f'../res/graphics/weapons/{player.weapon}/{direction}.png'
+		self.image = pygame.transform.scale_by(pygame.image.load(full_path).convert_alpha(), 0.5)
+		# self.image = pygame.Surface((20,20))
 		
 		# Placement
 		if direction == 'up':

@@ -14,9 +14,14 @@ UI_FONT_SIZE = 18
 
 # General Colors
 WATER_COLOR = '#71ddee'
-UI_BR_COLOR = '#222222'
+UI_BG_COLOR = '#222222'
 UI_BORDER_COLOR = '#111111'
 TEXT_COLOR = '#EEEEEE'
+
+# UI Colors
+HEALTH_COLOR = 'red'
+ENERGY_COLOR = 'blue'
+UI_BORDER_COLOR_ACTIVE = 'gold'
 
 # Weapons
 weapon_data = {

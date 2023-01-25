@@ -5,9 +5,9 @@
     },
     "activeFile": "tmx/island1.tmx",
     "expandedProjectPaths": [
-        "tmx",
         ".",
-        "tsx"
+        "tsx",
+        "tmx"
     ],
     "fileStates": {
         "tmx/island1.tmx": {

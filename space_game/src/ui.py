@@ -19,6 +19,12 @@ class UI:
 			weapon = pygame.image.load(path).convert_alpha()
 			self.weapon_graphics.append(weapon)
 
+		# Convert equipment dictionary
+		self.equipment_graphics = []
+		for equipment in equipment_data.values():
+			path = equipment['graphic']
+			equipment = pygame.image.load(path).convert_alpha()
+			self.equipment_graphics.append(equipment)
 
 	def show_bar(self, current, max_amount, bg_rect, color):
 		# Drawing BG
@@ -60,12 +66,18 @@ class UI:
   
 		self.display_surface.blit(weapon_surf, weapon_rect)
 
-	def equipment_overlay(self, equipment_index):
-		self.selection_box(100, 630) # Equipment
+	def equipment_overlay(self, equipment_index, has_switched):
+		bg_rect = self.selection_box(100, 630, has_switched) # Equipment
+		equipment_surf = self.equipment_graphics[equipment_index]
+		equipment_rect = equipment_surf.get_rect(center = bg_rect.center)
+  
+		self.display_surface.blit(equipment_surf, equipment_rect)
 
 	def display(self, player):
 		self.show_bar(player.health, player.stats['health'], self.health_bar_rect, HEALTH_COLOR)
 		self.show_bar(player.energy, player.stats['energy'], self.energy_bar_rect, ENERGY_COLOR)
 
 		self.show_exp(player.exp)
+		
 		self.weapon_overlay(player.weapon_index, player.can_switch_weapon)
+		self.equipment_overlay(player.equipment_index, player.can_switch_equipment)

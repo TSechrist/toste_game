@@ -7,6 +7,7 @@ from debug import *
 from random import choice
 from weapon import Weapon
 from ui import UI
+from enemy import Enemy
 
 
 class Level:
@@ -32,7 +33,8 @@ class Level:
 		layouts = {
 				'boundary': import_csv_layout('../res/tiled/tmx/island1_FloorBlocks.csv'),
 				'bushes': import_csv_layout('../res/tiled/tmx/island1_Bushes.csv'),
-				'objects': import_csv_layout('../res/tiled/tmx/island1_Objects.csv')
+				'objects': import_csv_layout('../res/tiled/tmx/island1_Objects.csv'),
+				'entities': import_csv_layout('../res/tiled/tmx/island1_Entities.csv')
 		}
 		graphics = {
 			'bushes': import_folder('../res/graphics/bushes'),
@@ -55,11 +57,23 @@ class Level:
 								Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object_rock', surf)
 							else:
 								Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object_tree', surf)
+						if style == 'entities':
+							if str(col) == "15":
+								#player
+								self.player = Player(
+									(x, y),
+									[self.visible_sprites],
+									self.obstacle_sprites,
+									self.create_attack,
+									self.destroy_attack,
+									self.create_equipment)
+							else:
+								#enemy
+								Enemy('monster', (x, y), [self.visible_sprites])
 					# if col == 'x':
 					#     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
 					# if col == 'p':
 						# self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
-		self.player = Player((625, 800), [self.visible_sprites], self.obstacle_sprites, self.create_attack, self.destroy_attack)
 
 	def create_attack(self):
 		self.current_attack = Weapon(self.player, [self.visible_sprites])
@@ -68,6 +82,11 @@ class Level:
 		if self.current_attack:
 			self.current_attack.kill()
 		self.current_attack = None
+
+	def create_equipment(self, style, strength, cost):
+		print(style)
+		print(strength)
+		print(cost)
 
 	def run(self):
 

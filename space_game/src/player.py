@@ -7,7 +7,7 @@ class Player(Entity):
 	def __init__(self, pos, groups, obstacle_sprites, create_attack, destroy_attack, create_equipment):
 		super().__init__(groups)
 		# self.image = pygame.transform.scale(pygame.image.load('../res/test/player_1.png').convert_alpha(), (32, 32))
-		self.image = pygame.transform.scale(pygame.image.load('../res/graphics/player/down/down_0.png').convert_alpha(), (32, 32))
+		self.image = pygame.transform.scale_by(pygame.image.load('../res/graphics/player/down/down_0.png').convert_alpha(), 2)
 		self.rect = self.image.get_rect(topleft = pos)
 		self.hitbox = self.rect.inflate(0, -16)
 
@@ -158,7 +158,7 @@ class Player(Entity):
 			self.frame_index = 0
 
 		# set the image
-		self.image = pygame.transform.scale(animation[int(self.frame_index)].convert_alpha(), (32, 32))
+		self.image = pygame.transform.scale_by(animation[int(self.frame_index)].convert_alpha(), 2)
 		self.rect = self.image.get_rect(center = self.hitbox.center)
 
 	def update(self):

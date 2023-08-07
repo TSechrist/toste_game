@@ -7,29 +7,21 @@ def sqrt_native(num):
 
 # sqrt_calculate
 # Square root function that uses Newton's method to iteratively calculate the square root.
+# Defaults set for 50 iterations at 1e-8 precision
 # Input: num (float)
 # Output: square root of num
-    # guess = number
-    # while abs(guess * guess - number) > epsilon:
-    #     guess = 0.5 * (guess + number / guess)
-    
-    # return guess
-
 def sqrt_calculate(num):
-    low, high = 0, max(1, num)
-    mid = high
-    while high - low > 1e-8:
-        mid = 0.5 * (low + high)
-        square = mid * mid
+    num_iterations = 50
+    precision = 1e-8
+    ret_guess = num
+    
+    for count in range(num_iterations):
+        ret_guess = 0.5 * (ret_guess + num / ret_guess)
+        if abs(ret_guess * ret_guess - num) < precision:
+            print("Found in " + str(count) + " iterations.")
+            return ret_guess
         
-        if square > num:
-            high = mid
-        elif square < num:
-            low = mid
-        else:
-            return low
-            
-    return low
+    raise ValueError("Square root not found after " + str(num_iterations) + " iterations.")
 
 # Main driver function of program
 if __name__ == "__main__":
